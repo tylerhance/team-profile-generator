@@ -36,7 +36,7 @@ const addManager = () => {
         },
 
     ])
-    .then(managerInput => (){
+    .then(managerInput => {
         const { name, id, email, officeNumber } = managerInput;
         const manager = new Manager (name, id , email, officeNumber);
 
@@ -46,14 +46,92 @@ const addManager = () => {
 };
 
 const addEmployee = () => {
-    console.log(`Adding employees to team.`);
+    console.log(`----- Adding employees to team. -----`);
 
     return inquirer.prompt ([
         {
-            type: 'list',
-            name: 'role',
+            type: "list",
+            name: "role",
             message: "Please choose the employee's role",
-            choices: ['Engineer', 'Intern']
+            choices: ["Engineer", "Intern"]
         },
-    ]);
+        {
+            type: "input",
+            name: "name",
+            message: "What's the name of the employee?",
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Please enter the employee's ID.",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Please enter the employee's email.",
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "Please enter the employee's github username.",
+            when: (input) => input.role === "Engineer"
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "Please enter the intern's school.",
+            when: (input) => input.role === "Intern"
+        },
+        {
+            type: "confirm",
+            name: "confirmAddEmployee",
+            message: "Would you like to add more team members?",
+            default: false
+        },
+    ])
+
+    // data for all the employee types
+    .then(employeeData => {
+        let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
+        let employee;
+
+        if(role === "Engineer") {
+            employee = new Engineer (name, id, email, github);
+            console.log(employee);
+        }else if(role === "Intern") {
+            employee = new Intern (name, id, email, school);
+            console.log(employee);
+        }
+
+        teamArray.push(employee);
+
+        if (confirmAddEmployee) {
+            return addEmployee(teamArray);
+        }else {
+            return teamArray;
+        }
+    })
 };
+
+// Function to generate HTML using fs
+const writeFile = data => {
+    fs.fdatasync.writeFile('./dist/index.html', data, err => {
+        if(err) {
+            console.log(err);
+            return;
+        }else {
+            console.log("Your team has been successfully created! Refer to the index.html to check it out!")
+        }
+    })
+};
+
+addManager()
+    .then(addEmployee)
+    .then(teamArray => {
+        return generateHTML(teamArray);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    }) .catch(err => {
+        console.log(err);
+    })
