@@ -35,12 +35,6 @@ const addManager = () => {
             message: "What is the manager's office number?",
             
         },
-        {
-            type: "confirm",
-            name: "confirmAddEmployee",
-            message: "Would you like to add more team members?",
-            default: false
-        },
 
     ])
     .then(managerInput => {
