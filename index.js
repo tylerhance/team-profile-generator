@@ -33,6 +33,13 @@ const addManager = () => {
             type: 'input',
             name: 'officeNumber',
             message: "What is the manager's office number?",
+            
+        },
+        {
+            type: "confirm",
+            name: "confirmAddEmployee",
+            message: "Would you like to add more team members?",
+            default: false
         },
 
     ])
@@ -115,7 +122,7 @@ const addEmployee = () => {
 
 // Function to generate HTML using fs
 const writeFile = data => {
-    fs.fdatasync.writeFile('./dist/index.html', data, err => {
+    fs.writeFile('./dist/index.html', data, err => {
         if(err) {
             console.log(err);
             return;
