@@ -22,7 +22,7 @@
 
 * The user can clone the repo from GitHub and download Node. It will also require fs and the Inquire module. For testing, make sure to install Jest.
 
-<h2>Usage</h2>;//
+<h2>Usage</h2>
 
 * Use Inquirer from the command line to follow the prompts to complete the form. A walk-through video can be viewed [Here](https://drive.google.com/file/d/15EzGw7XT8Q5v4nO5FjTXcMAe3_USHiMX/view)<br>
 <img src="./assets/images/teamprofile.png">
