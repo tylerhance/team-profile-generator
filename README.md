@@ -25,7 +25,7 @@
 <h2>Usage</h2>;//
 
 * Use Inquirer from the command line to follow the prompts to complete the form. A walk-through video can be viewed [Here](https://drive.google.com/file/d/15EzGw7XT8Q5v4nO5FjTXcMAe3_USHiMX/view)<br>
-<img src="./assets/image/teamprofile.png">
+<img src="./assets/images/teamprofile.png">
 
 <h2>Questions</h2>
 
