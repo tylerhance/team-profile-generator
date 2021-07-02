@@ -6,7 +6,7 @@ const generateManager = function (manager) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4>Manager</h4><i class="material-icons">content_paste</i>
+                <h4>Manager</h4><i class="fa-solid fa-user-tie"></i>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${manager.id}</p>
@@ -25,7 +25,7 @@ const generateEngineer = function (engineer) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
-                <h4>Engineer</h4><i class="material-icons">laptop_mac</i>
+                <h4>Engineer</h4><i class="fa-solid fa-laptop-code"></i>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${engineer.id}</p>
@@ -38,13 +38,13 @@ const generateEngineer = function (engineer) {
 };
 
 // Creates the intern card
-const generateInter = function (intern) {
+const generateIntern = function (intern) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+                <h4>Intern</h4><i class="fa-solid fa-chalkboard-user"></i>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
@@ -100,6 +100,7 @@ const generateTeamPage = function (employeeCards) {
   <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Team Profile Generator</title>
+      <script src="https://kit.fontawesome.com/f790335e6c.js" crossorigin="anonymous"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet"></link>
